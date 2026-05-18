@@ -127,8 +127,8 @@ private:
 
 
   uint8_t _man_weight(uint8_t i);
-  uint8_t _man_sample(uint8_t *edata, uint16_t bitpos, uint8_t *stop_coll);
-  uint8_t _man_decode(uint8_t *edata, uint8_t ebitlen, uint8_t *ddata);
+  uint8_t _man_sample(volatile uint8_t *edata, uint16_t bitpos, uint8_t *stop_coll);
+  uint8_t _man_decode(volatile uint8_t *edata, uint8_t ebitlen, uint8_t *ddata);
 
   //-------------------------------------------------
   //HIGH LEVEL PRIVATE
@@ -398,7 +398,7 @@ private:
 #define DALI_QUERY_REFARENCE_RUNNING 249 //249 IEC62386-207 - Returns whetherReference System Power is in operation. (Command that exist only in IEC62386-207)
 #define DALI_QUERY_REFERENCE_MEASURMENT_FAILED 250 //250 IEC62386-207 - Returns bit7 reference measurement failed  of ‘FAILURE STATUS’ (Command that exist only in IEC62386-207)
 #define DALI_QUERY_CURRENT_PROTECTOR_ENABLE 251 //251 IEC62386-207 - Returns state of Curent protector (Command that exist only in IEC62386-207)
-#define DALI_QUERY_OPERATING_MODE 252 //252 IEC62386-207 - Returns ‘OPERATING MODE’ (Command that exist only in IEC62386-207)
+#define DALI_QUERY_OPERATING_MODE_207 252 //252 IEC62386-207 - Returns ‘OPERATING MODE’ (Command that exist only in IEC62386-207)
 #define DALI_QUERY_FAST_FADE_TIME 253 //253 IEC62386-207 - Returns set Fast fade time. (Command that exist only in IEC62386-207)
 #define DALI_QUERY_MIN_FAST_FADE_TIME 254 //254 IEC62386-207 - Returns set Minimum fast fade time (Command that exist only in IEC62386-207)
 #define DALI_QUERY_EXTENDED_VERSION_NUMBER 255 //255 IEC62386-207 - The version number of the extended support? IEC62386-207: 1, Other: NO(no response)
