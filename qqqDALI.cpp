@@ -683,8 +683,6 @@ uint8_t Dali::set_dtr2(uint8_t value, uint8_t adr) {
 }
 
 uint8_t Dali::read_memory_bank(uint8_t bank, uint8_t adr) {
-  uint16_t rv;
-
   if(set_dtr0(0, adr)) return 1;
   if(set_dtr1(bank, adr)) return 2;
     
@@ -712,10 +710,13 @@ uint8_t Dali::read_memory_bank(uint8_t bank, uint8_t adr) {
     }
     //delay(10);
   }
+#else
+  (void)len;
 #endif
 
   uint16_t dtr0 = cmd(DALI_QUERY_CONTENT_DTR0,adr); //get DTR value
   if(dtr0 != 255) return 4;
+  return 0;
 }
 
 
