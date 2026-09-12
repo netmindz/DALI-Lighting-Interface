@@ -331,7 +331,7 @@ uint8_t Dali::rx(uint8_t *ddata) {
   case RECEIVING: return 1;
   case COMPLETED: 
     rxstate = EMPTY;   
-    uint8_t dlen = _man_decode(rxdata,rxpos*8,ddata);
+    uint8_t dlen = _man_decode((uint8_t*)rxdata,rxpos*8,ddata); // safe: rxdata is stable once rxstate == COMPLETED
     
 
 #ifdef DALI_DEBUG
